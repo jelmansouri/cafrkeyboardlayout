@@ -1,0 +1,88 @@
+// Marc.Shapiro@inria.fr 19-sep-1998
+// modifications : Etienne Herlent <eherlent@linux-france.org> june 2000
+// adapted to the new input layer :
+//        Martin Costabel <costabel@wanadoo.fr> 3-jan-2001
+//////////////////////////////////////////////////////////////////
+// Petites Modification le juillet 2005 par Bin Zhang <bb.zhang@free.fr> : 
+// 1) La ligne 83 : remplacer les deux "VoidSymbol" par oe et OE 
+// 2) La ligne 89 : remplacer "VoidSymbol" par "EuroSign"
+// ( 1) et 2) fonctionnent sous UTF-8, mais pas sous iso-8859-1. )
+// 3) Remplacer la ligne 148 par la ligne 149 pour que la touche Alt_L
+// (la touche Apple-Pomme) fonctionne correctement sous Xorg, une idée
+// motivée par http://www.linux-france.org/macintosh/clavier_gentoo.html
+//////////////////////////////////////////////////////////////////
+// This map is an almost-complete mapping of the standard French
+// MacIntosh keyboard under Xwindows.  I tried to remain as faithful
+// as possible to the Mac meaning of each key.	I did this entirely by
+// hand and by intuition, relying on the Clavier (Keyboard?) Desktop
+// Accessory for the Mac meaning of keys, and on reading keysymdef.h
+// to intuit the corresponding X names.	 Lacking proper documentation,
+// I may have made some mistakes.
+
+// Entries marked CHECK are particularly uncertain
+
+// Entries marked MISSING mark Mac characters for which I was unable
+// to find a corresponding keysym.  (Some for sure don't: e.g. the
+// Apple mark and the oe/OE character; others I may have simply not
+// found.)
+
+default
+xkb_symbols "fr-mac" {
+    name[Group1] = "French (Canada, Macintosh)";
+
+    key <TLDE>	{ [     slash,  backslash,           bar ]	};
+    key <AE01>	{ [         1,     exclam,    exclamdown ]	};
+    key <AE02>	{ [         2,         at,            at ]	};
+    key <AE03>	{ [         3, numbersign,      sterling ]	};
+    key <AE04>	{ [         4,     dollar,      EuroSign ]	};
+    key <AE05>	{ [         5,    percent,      infinity ] 	};
+    key <AE06>	{ [         6,   question                ]	}; 
+    key <AE07>	{ [         7,  ampersand,     braceleft ]	};
+    key <AE08>	{ [         8,   asterisk,    braceright ]	};
+    key <AE09>	{ [         9,  parenleft,   bracketleft ]	};
+    key <AE10>	{ [         0, parenright,   bracketleft ]	};
+    key <AE11>	{ [     minus, underscore,           bar ]	};
+    key <AE12>	{ [     equal,       plus,       notsign ]	};
+
+    key <AD01>	{ [         q,          Q ]	};
+    key <AD02>	{ [         w,          W ]	};
+    key <AD03>	{ [         e,          E ]	};
+    key <AD04>	{ [         r,          R ]	};
+    key <AD05>	{ [         t,          T ]	};
+    key <AD06>	{ [         y,          Y ]	};
+    key <AD07>	{ [         u,          U ]	};
+    key <AD08>	{ [         i,          I ]	};
+    key <AD09>	{ [         o,          O ]	};
+    key <AD10>	{ [         p,          P ]	};
+    key <AD11>	{ [ dead_circumflex, dead_diaeresis, dead_grave  ]	};
+    key <AD12>	{ [   ccedilla,  Ccedilla, asciitilde ]	};
+
+    key <AC01>	{ [         a,          A ]	};
+    key <AC02>	{ [         s,          S ]	};
+    key <AC03>	{ [         d,          D ]	};
+    key <AC04>	{ [         f,          F ]	};
+    key <AC05>	{ [         g,          G ]	};
+    key <AC06>	{ [         h,          H ]	};
+    key <AC07>	{ [         j,          J ]	};
+    key <AC08>	{ [         k,          K ]	};
+    key <AC09>	{ [         l,          L ]	};
+    key <AC10>	{ [ semicolon,      colon,        degree ]	};
+    key <AC11>	{ [    egrave,     Egrave,     backslash ]	};
+    key <BKSL>	{ [    agrave,    Agrave,          grave ]	};
+
+    key <LSGT>	{ [    ugrave,     Ugrave,     backslash ]	};
+    key <AB01>	{ [         z,          Z, guillemotleft ]	};
+    key <AB02>	{ [         x,          X,guillemotright ]	};
+    key <AB03>	{ [         c,          C                ]	};
+    key <AB04>	{ [         v,          V                ]	};
+    key <AB05>	{ [         b,          B                ]	};
+    key <AB06>	{ [         n,          N                ]	};
+    key <AB07>	{ [         m,          M,            mu ]	};
+    key <AB08>	{ [     comma, apostrophe,          less ]	};
+    key <AB09>	{ [    period,   quotedbl,       greater ]	};
+    key <AB10>	{ [    eacute,     Eacute,     backslash ]	};
+
+    key <SPCE>	{ [     space,      space, nobreakspace ]	};
+
+    include "level3(ralt_switch)"
+};
